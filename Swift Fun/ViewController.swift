@@ -10,16 +10,33 @@ import UIKit
 
 class ViewController: UIViewController {
 
+	@IBOutlet var topField: UITextField!
+	@IBOutlet var bottomField: UITextField!
+	
+	@IBOutlet var arithmeticSwitch: UISwitch!
 	@IBOutlet var myLabel: UILabel!
-	var count = 0
+//	var count = 0
 	@IBAction func buttonTapped(_ sender: Any) {
-		count += 1
-		print(count)
-		if count >= 2 {
-			view.backgroundColor = UIColor.purple
-			myLabel.text = "#\(count) Dave is not here."
-			
+		let addition = arithmeticSwitch.isOn
+		
+		if addition {
+			let sum = Int(topField.text!)! + Int(bottomField.text!)!
+			myLabel.text = String(sum)
+
+		} else {
+			let sum = Int(topField.text!)! - Int(bottomField.text!)!
+			myLabel.text = String(sum)
+
 		}
+		
+		
+//		count += 1
+//		print(count)
+//		if count >= 2 {
+//			view.backgroundColor = UIColor.purple
+//			myLabel.text = "#\(count) Dave is not here."
+//			
+//		}
 	}
 	
 	override func viewDidLoad() {
